@@ -5,6 +5,7 @@ import ProductDetail from "./ProductDetail";
 import { Button, Form } from "react-bootstrap";
 import { InputGroup } from "react-bootstrap";
 import { Row, Col } from "react-bootstrap";
+import Data from './Data.json'
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -17,9 +18,7 @@ const Home = () => {
   }, []);
 
   const fetchProducts = async () => {
-    const res = await fetch("https://dummyjson.com/products");
-    const data = await res.json();
-    const productsArray = Object.values(data);
+    const productsArray = Object.values(Data);
     console.log(productsArray);
     setProducts(productsArray[0]);
   };
